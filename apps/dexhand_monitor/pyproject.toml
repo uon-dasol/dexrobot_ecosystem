@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dexhand-monitor"
+version = "0.1.0"
+description = "Independent desktop control and tactile monitor for DexHand"
+requires-python = ">=3.11,<3.14"
+license = "Apache-2.0"
+dependencies = ["PySide6-Essentials==6.8.3"]
+
+[project.scripts]
+dexhand-monitor = "dexhand_monitor.app:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dexhand_monitor*"]

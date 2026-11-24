@@ -9,6 +9,7 @@ DexHand 하드웨어 제어(`pyzlg_dexhand`)와 촉각 센서 모니터링·관�
 
 ## HW Specification
 
+- 로봇 핸드: DexHand 021 MP
 - 동작 전압 / 정지 전류: DC 24V / 0.2A
 - 최대 전류: 7.4A
 - 통신: CAN FD
@@ -16,6 +17,13 @@ DexHand 하드웨어 제어(`pyzlg_dexhand`)와 촉각 센서 모니터링·관�
 ## Installation
 
 ```bash
+# 저장소 클론 (서브모듈 포함)
+git clone --recurse-submodules https://github.com/uonrobotics/dexrobot_ecosystem.git
+cd dexrobot_ecosystem
+
+# 이미 클론했다면 서브모듈만 받기
+# git submodule update --init --recursive
+
 # 환경 설정
 conda create -n dexhand python=3.11 pip -y
 conda activate dexhand
@@ -25,8 +33,10 @@ python -m pip install PyQt6
 
 # USB 접근 권한 부여
 id -nG
+
 # canbus 그룹이 현재 사용자에 없다면
 newgrp canbus
+
 # canbus 그룹 자체가 없다면 (최초 1회): sudo pyzlg_dexhand/tools/setup_usb_can.sh 실행 후 재로그인
 ```
 
